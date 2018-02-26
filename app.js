@@ -1,4 +1,4 @@
-$.ajax("data.json", {
+$.ajax("data.json?cacheBust="+new Date, {
 
 
   success: function (data) {
