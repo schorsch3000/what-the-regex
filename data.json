@@ -1,0 +1,100 @@
+[
+  {
+    "title": "A dot is a dot",
+    "desc": "inside a character-class [] a dot is a dot no special meaning",
+    "regex": "^[.]*$",
+    "samples": [
+      "foo",
+      "..."
+    ]
+  },
+  {
+    "title": "The hyphen (1/3)",
+    "desc": "A hyphen surrounded by characters inside a character class makes a range",
+    "regex": "^[b-c]$",
+    "samples": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "-"
+    ]
+  },
+  {
+    "title": "The hyphen (2/3)",
+    "desc": "A hyphen starting a character class means a hyphen",
+    "regex": "^[-1b]$",
+    "samples": [
+      "a",
+      "b",
+      "1",
+      "2",
+      "-"
+    ]
+  },
+  {
+    "title": "The hyphen (3/3)",
+    "desc": "A hyphen ending a character class means a hyphen",
+    "regex": "^[1b-]$",
+    "samples": [
+      "a",
+      "b",
+      "1",
+      "2",
+      "-",
+      "\\"
+    ]
+  },
+  {
+    "title": "Useless backslash",
+    "desc": "A backslash inside a character class, if not before a special char, is, depending on the engine either useless, syntactically incorrect  or a literal backslash",
+    "regex": "^[-1b\\-]$",
+    "samples": [
+      "a",
+      "b",
+      "1",
+      "2",
+      "-",
+      "\\"
+    ]
+  },
+  {
+    "title": "Real backslash",
+    "desc": "A double (or escaped) backslash inside a character class represents a backslash",
+    "regex": "^[-1b\\\\-]$",
+    "samples": [
+      "a",
+      "b",
+      "1",
+      "2",
+      "-",
+      "\\"
+    ]
+  },
+  {
+    "title": "What a dot misses",
+    "desc": ["A dot matches every character, right?","Nope, a dot matches everything but linebreaks"],
+    "regex": "^.*$",
+    "samples": [
+      "foo",
+      "bar",
+      "foo bar",
+      "foo\nbar",
+      "xxx"
+    ]
+  },
+  {
+    "title": "What negated character classes includes",
+    "desc": ["[^x] behaves like a dot except it not matches an x?","Nope, in fact it matches newlines."],
+    "regex": "^[^x]*$",
+    "samples": [
+      "foo",
+      "bar",
+      "foo bar",
+      "foo\nbar",
+      "xxx"
+    ]
+  }
+
+
+]
