@@ -27,7 +27,7 @@ $.ajax("data.json", {
       block.append($("<pre/>").html(item.regex))
       var regex = new RegExp(item.regex);
       for (var sample of item.samples) {
-        var sampleEl = $("<textarea/>").val(sample);
+        var sampleEl = $("<textarea disabled/>").val(sample);
         if (sample.match(regex)) {
           sampleEl.addClass("matching");
         } else {
