@@ -111,6 +111,21 @@
     ]
   },
   {
+    "title": "What \uD83D\uDCA9 a dot matches",
+    "desc": [
+      "A dot matches more than text..."
+    ],
+    "regex": "^.*$",
+    "samples": [
+      "✔",
+      "↑",
+      "\uD83D\uDCA9",
+      "♻",
+      "↵",
+      "⌫"
+    ]
+  },
+  {
     "title": "What negated character classes includes",
     "desc": [
       "[^x] behaves like a dot except it not matches an x?",
@@ -211,10 +226,9 @@
       "Within { and } you can set the minimal and maximal occurence of the preceding item, e.g.:",
       "the last number can be omitted, so no maximum limit is given eg:",
       " - {0,} is the same as *",
-      " - {1,} is the same as +"
-
+      " - {0,} is the same as *"
     ],
-    "regex": "^a{3,}$",
+    "regex": "^a{2,}$",
     "samples": [
       "",
       "a",
@@ -226,5 +240,4 @@
       "aaaaaaa"
     ]
   }
-
 ]
