@@ -5,7 +5,31 @@
     "regex": "^[.]*$",
     "samples": [
       "foo",
-      "..."
+      "...",
+      "???",
+      "***"
+    ]
+  },
+  {
+    "title": "A question mark is a question mark",
+    "desc": "inside a character-class [] a question mark is a question mark no special meaning",
+    "regex": "^[?]*$",
+    "samples": [
+      "foo",
+      "...",
+      "???",
+      "***"
+    ]
+  },
+  {
+    "title": "A asterisk is a asterisk",
+    "desc": "inside a character-class [] a asterisk is a asterisk no special meaning",
+    "regex": "^[*]*$",
+    "samples": [
+      "foo",
+      "...",
+      "???",
+      "***"
     ]
   },
   {
@@ -48,7 +72,7 @@
   {
     "title": "Useless backslash",
     "desc": "A backslash inside a character class, if not before a special char, is, depending on the engine either useless, syntactically incorrect  or a literal backslash",
-    "regex": "^[-1b\\-]$",
+    "regex": "^[1b\\-]$",
     "samples": [
       "a",
       "b",
@@ -61,7 +85,7 @@
   {
     "title": "Real backslash",
     "desc": "A double (or escaped) backslash inside a character class represents a backslash",
-    "regex": "^[-1b\\\\-]$",
+    "regex": "^[1b\\\\-]$",
     "samples": [
       "a",
       "b",
