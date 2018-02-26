@@ -24,9 +24,11 @@ $.ajax("data.json", {
     }
     for (var itemId in data) {
       var item = data[itemId];
-      if (slugCounter[item.slug] === 1) continue;
+
       item.origTtitle = item.title;
-      item.title = item.title + " (" + item.slugNo + "/" + slugCounter[item.slug] + ")"
+      if (slugCounter[item.slug] !== 1) {
+        item.title = item.title + " (" + item.slugNo + "/" + slugCounter[item.slug] + ")"
+      }
       item.slug = slugify(item.origTtitle + " " + item.slugNo)
       data[itemId] = item;
     }
