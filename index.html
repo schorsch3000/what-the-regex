@@ -10,18 +10,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"
         type="text/css"/>
   <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css"/>
-  <style>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css"/>
 
+  <style>
+    @import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
+
+    textarea, pre{
+      font-family: "Fira Code";
+    }
     textarea.matching {
       background-color: #9f9;
     }
+
     textarea.notMatching {
       background-color: #f99;
     }
-    h2{
-      cursor:pointer;
+
+    h2 {
+      cursor: pointer;
     }
-    h2:hover{
+
+    h2:hover {
       color: #99f;
     }
   </style>
