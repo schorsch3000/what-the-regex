@@ -11,13 +11,36 @@ $.ajax("data.json", {
         .replace(/-+$/, '');            // Trim - from end of text
     }
 
+    var slugCounter = {};
+    for (var itemId in data) {
+      var item = data[itemId];
+      item.slug = slugify(item.title)
+      if (undefined === slugCounter[item.slug]) {
+        slugCounter[item.slug] = 0
+      }
+      slugCounter[item.slug]++
+      item.slugNo = slugCounter[item.slug];
+      data[itemId] = item;
+    }
+    for (var itemId in data) {
+      var item = data[itemId];
+      if (slugCounter[item.slug] === 1) continue;
+      item.origTtitle = item.title;
+      item.title = item.title + " (" + item.slugNo + "/" + slugCounter[item.slug] + ")"
+      item.slug = slugify(item.origTtitle + " " + item.slugNo)
+      data[itemId] = item;
+    }
+    console.log(slugCounter)
+
     for (var item of data) {
 
 
       var block = $("<div class=\"regex\"/>");
-      block.append($("<h2/>").html(item.title).attr("id", slugify(item.title)).click(function () {
+
+      block.append($("<h2/>").html(item.title).attr("id", item.slug).click(function () {
         window.location.hash = $(this).attr("id");
       }))
+
       item.desc = item.desc instanceof Array ? item.desc : [item.desc];
       for (var desc of item.desc) {
         block.append($("<p/>").html(desc))
